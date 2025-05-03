@@ -26,11 +26,8 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (https://gruntjs.com/)
 .grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
 
 # node-waf configuration
 .lock-wscript
@@ -72,7 +69,7 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variable files
+# dotenv environment variables file
 .env
 .env.development.local
 .env.test.local
@@ -87,9 +84,18 @@ web_modules/
 .next
 out
 
-# Nuxt.js build / generate output
+# Nuxt.js build output
 .nuxt
 dist
+
+# Nuxt.js generated files
+.output/
+
+# VuePress build output
+.vuepress/dist
+
+# Docusaurus build output
+.docusaurus
 
 # Gatsby files
 .cache/
@@ -97,21 +103,19 @@ dist
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
-# vuepress build output
-.vuepress/dist
+.gatsby/
 
-# vuepress v2.x temp and cache directory
-.temp
-.cache
+# Remix files
+.cache/
+build/
+public/build/
 
-# vitepress build output
-**/.vitepress/dist
+# Angular build output
+/dist/
 
-# vitepress cache directory
-**/.vitepress/cache
-
-# Docusaurus cache and generated files
-.docusaurus
+# Remix directories
+app/build/
+public/build/
 
 # Serverless directories
 .serverless/
@@ -134,3 +138,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Config files (sensitive info)
+llmmit.config.json

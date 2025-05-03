@@ -1,0 +1,20 @@
+{
+  "name": "llmmit",
+  "version": "1.0.0",
+  "description": "llm to generate git commit message",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "llmmit": "bin/llmmit.js"
+  },
+  "dependencies": {
+    "simple-git": "^3.21.0",
+    "openai": "^4.20.0",
+    "inquirer": "^9.2.16"
+  }
+}
