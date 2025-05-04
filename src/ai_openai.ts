@@ -57,31 +57,34 @@ async function generateCommitMessage(prompt: string): Promise<CommitMessageArgs>
   const response: ChatCompletion = await openai.chat.completions.create({
     model: config.openai_model,
     messages: [{ role: 'user', content: prompt }],
-    functions: [commitMessageFunction],
-    function_call: { name: commitMessageFunction.name }, // Force calling the function
+    tools: [{ type: "function", function: commitMessageFunction }], // Use tools
+    tool_choice: { type: "function", function: { name: commitMessageFunction.name } }, // Use tool_choice
     temperature: config.openai_temperature,
   });
 
   const message: ChatCompletionMessage = response.choices[0].message;
 
-  // Check if the model wanted to call the function
-  if (message.function_call && message.function_call.arguments) {
-    try {
-      // Parse the arguments string into a JSON object and assert its type
-      const functionArgs = JSON.parse(message.function_call.arguments) as CommitMessageArgs;
-      // Basic validation after parsing
-      if (functionArgs && commitMessageFunction.parameters.properties.type.enum.includes(functionArgs.type) && functionArgs.title) {
-          return functionArgs;
-      }
-      console.error('Parsed function call arguments do not match expected structure:', functionArgs);
-    } catch (e: unknown) { // Use unknown for caught errors
-      console.error('AI function call arguments parsing failed:', e);
-      console.error('Raw arguments:', message.function_call.arguments);
-      // Fall through to check content as a backup
+  // Check if the model made tool calls
+  if (message.tool_calls && message.tool_calls[0]?.function?.arguments) {
+    const toolCall = message.tool_calls[0]; // Assuming one tool call
+    if (toolCall.function.name === commitMessageFunction.name) {
+        try {
+            // Parse the arguments string from the tool call
+            const functionArgs = JSON.parse(toolCall.function.arguments) as CommitMessageArgs;
+            // Basic validation after parsing
+            if (functionArgs && commitMessageFunction.parameters.properties.type.enum.includes(functionArgs.type) && functionArgs.title) {
+                return functionArgs;
+            }
+            console.error('Parsed function call arguments do not match expected structure:', functionArgs);
+        } catch (e: unknown) { // Use unknown for caught errors
+            console.error('AI tool call arguments parsing failed:', e);
+            console.error('Raw arguments:', toolCall.function.arguments);
+            // Fall through to check content as a backup
+        }
     }
   }
 
-  // If function_call failed or wasn't present/valid, try parsing content
+  // If tool_calls failed or wasn't present/valid, try parsing content
   if (message.content) {
     try {
       // Try to extract JSON from the content (avoiding 's' flag)
@@ -100,8 +103,8 @@ async function generateCommitMessage(prompt: string): Promise<CommitMessageArgs>
     }
   }
 
-  // If neither function_call nor content yielded the expected structure
-  const errorMsg = 'AI did not return the expected function call or valid JSON content.';
+  // If neither tool_calls nor content yielded the expected structure
+  const errorMsg = 'AI did not return the expected tool call or valid JSON content.';
   console.error(errorMsg, 'Response Message:', message);
   throw new Error(errorMsg + ' Response: ' + JSON.stringify(message));
 }
