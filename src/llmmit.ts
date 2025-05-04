@@ -22,10 +22,9 @@ function formatCommitMessage(commitData: CommitMessageArgs): string {
 }
 
 async function main() {
-  let spinner: Ora | undefined; // Type spinner variable
+  let spinner: Ora | undefined;
   try {
     const diff = await getDiff();
-    // Check if diff is null or empty string after trimming
     if (!diff || !diff.trim()) {
       console.log('✅ No changes added to staging. Nothing to commit.');
       process.exit(0);
