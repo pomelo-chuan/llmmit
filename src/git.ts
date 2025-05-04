@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import config from './config_loader';
+import config from './config_loader.js';
 
 async function getDiff(): Promise<string | null> {
   let command = 'git diff --staged --';

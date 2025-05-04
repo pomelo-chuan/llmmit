@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { getDiff } from './git';
-import { summarizeDiff } from './summarize';
-import { confirmCommit } from './prompt';
+import { getDiff } from './git.js';
+import { summarizeDiff } from './summarize.js';
+import { confirmCommit } from './prompt.js';
 import { execSync } from 'child_process'; // Add this import
-import { CommitMessageArgs } from './ai_openai'; // Import the interface
+import { CommitMessageArgs } from './ai_openai.js'; // Import the interface
 import ora, { Ora } from 'ora'; // Import ora types
 import chalk from 'chalk'; // Chalk has default export types
 

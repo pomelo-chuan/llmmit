@@ -1,5 +1,5 @@
 import { OpenAI } from 'openai';
-import config from './config_loader'; // Default import
+import config from './config_loader.js'; // Default import
 import { ChatCompletionMessage, ChatCompletion } from 'openai/resources/chat/completions'; // Import specific types
 
 // Interface for the expected arguments from the AI function call

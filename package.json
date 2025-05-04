@@ -1,6 +1,7 @@
 {
   "name": "llmmit",
   "version": "1.0.0",
+  "type": "module",
   "description": "llm to generate git commit message",
   "main": "bin/llmmit.js",
   "scripts": {
@@ -20,14 +21,14 @@
     "llmmit": "bin/llmmit.js"
   },
   "dependencies": {
-    "inquirer": "^8.2.4",
-    "openai": "^4.20.0"
+    "chalk": "^5.4.1",
+    "inquirer": "^12.6.0",
+    "openai": "^4.97.0",
+    "ora": "^8.2.0"
   },
   "devDependencies": {
-    "@types/chalk": "^0.4.31",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^22.15.3",
-    "@types/ora": "^3.1.0",
     "typescript": "^5.8.3"
   }
 }
