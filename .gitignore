@@ -145,3 +145,6 @@ Thumbs.db
 
 # Config files (sensitive info)
 llmmit.config.json
+
+# Compiled output directory
+bin/
