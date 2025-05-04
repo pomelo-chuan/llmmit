@@ -1,7 +1,6 @@
-import inquirer from 'inquirer'; // Use static import for inquirer v8
+import inquirer from 'inquirer';
 
 async function confirmCommit(message: string): Promise<boolean> {
-  // const inquirer = (await import('inquirer')).default; // Remove dynamic import
   const answers = await inquirer.prompt<{ confirm: boolean }>([
     {
       type: 'confirm',
