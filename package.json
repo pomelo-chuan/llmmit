@@ -1,6 +1,6 @@
 {
   "name": "llmmit",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "type": "module",
   "description": "llm to generate git commit message",
   "main": "bin/llmmit.js",
@@ -8,6 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "prepublishOnly": "npm run build"
+  },
+  "homepage": "https://github.com/pomelo-chuan/llmmit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pomelo-chuan/llmmit.git"
   },
   "tags": [
     "git",
@@ -34,7 +39,8 @@
   "files": [
     "bin",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "images"
   ],
   "keywords": [],
   "author": "",
@@ -43,6 +49,7 @@
     "llmmit": "bin/llmmit.js"
   },
   "dependencies": {
+    "boxen": "^8.0.1",
     "chalk": "^5.4.1",
     "inquirer": "^12.6.0",
     "openai": "^4.97.0",

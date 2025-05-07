@@ -38,7 +38,7 @@ async function main() {
 
     const coloredMessage: string = chalk.green(formattedMessage);
 
-    const ok: boolean = await confirmCommit(`Use the following commit message?\n\n${coloredMessage}\n`);
+    const ok: boolean = await confirmCommit(coloredMessage);
 
     if (ok) {
       spinner = ora('🚀 Committing changes...').start();

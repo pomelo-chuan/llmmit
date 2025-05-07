@@ -62,6 +62,13 @@ async function generateCommitMessage(prompt: string): Promise<CommitMessageArgs>
     temperature: config.temperature,
   });
 
+  // Check if response.choices exists and is not empty
+  if (!response.choices || response.choices.length === 0) {
+    const errorMsg = 'OpenAI API did not return any choices.';
+    console.error(errorMsg, 'Full API Response:', response);
+    throw new Error(errorMsg + ' Full API Response: ' + JSON.stringify(response));
+  }
+
   const message: ChatCompletionMessage = response.choices[0].message;
 
   // Check if the model made tool calls

@@ -31,7 +31,7 @@ try {
   if (fs.existsSync(configFilePath)) {
     const configFileContent = fs.readFileSync(configFilePath, 'utf-8');
     userConfig = JSON.parse(configFileContent) as Partial<Config>; // Assert type after parsing
-    console.log(`Configuration loaded from ${configFilePath}`);
+    console.log(`⚙️ Configuration loaded from ${configFilePath}`);
   } else {
     console.log(`Configuration file not found at ${configFilePath}. Using defaults.`);
   }
