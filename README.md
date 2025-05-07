@@ -75,19 +75,17 @@ If the configuration file or specific keys are missing, the tool will use defaul
 ## Demo
 
 ```bash
+➜  llmmit git:(main) ✗ llmmit
 ⚙️ Configuration loaded from /Users/pomelo/.llmmitrc
 ✔ ✨ Commit message generated!
-╭─────────── Generated Commit Message ───────────╮
-│                                                │
-│   feat: feat: improve commit message display   │
-│                                                │
-│   - add boxen for better formatting            │
-│   - update confirm message                     │
-│   - add error handling for OpenAI response     │
-│   - update package version and dependencies    │
-│   - include images in files                    │
-│                                                │
-╰────────────────────────────────────────────────╯
+╭────── Generated Commit Message ──────╮
+│                                      │
+│   docs: add demo section to README   │
+│                                      │
+│   - add demo section                 │
+│   - update package version           │
+│                                      │
+╰──────────────────────────────────────╯
 
 ✔ Do you want to use this commit message and proceed with the commit? Yes
 ✔ 🎉 Changes committed!
