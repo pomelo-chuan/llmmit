@@ -6,8 +6,8 @@ import os from 'os';
 interface Config {
   openai_api_key: string | null;
   openai_base_url: string | null;
-  openai_model: string;
-  openai_temperature: number;
+  model: string;
+  temperature: number;
   output_language: string;
   ignorePatterns: string[];
   // Add any other config properties here
@@ -19,8 +19,8 @@ const configFilePath = path.join(os.homedir(), '.llmmitrc');
 const defaultConfig: Config = {
   openai_api_key: process.env.OPENAI_API_KEY || null,
   openai_base_url: null,
-  openai_model: 'gpt-3.5-turbo',
-  openai_temperature: 0.7,
+  model: 'gpt-3.5-turbo',
+  temperature: 0.7,
   output_language: 'English',
   ignorePatterns: [],
 };

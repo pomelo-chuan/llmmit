@@ -1,7 +1,5 @@
 import { generateCommitMessage, CommitMessageArgs } from './ai_openai.js';
 import config from './config_loader.js';
-import fs from 'fs';
-import path from 'path';
 
 // Embed the prompt template directly
 const promptTemplateContent = `# Role

@@ -55,11 +55,11 @@ const openai = new OpenAI({
 async function generateCommitMessage(prompt: string): Promise<CommitMessageArgs> {
   // Type the response from OpenAI API
   const response: ChatCompletion = await openai.chat.completions.create({
-    model: config.openai_model,
+    model: config.model,
     messages: [{ role: 'user', content: prompt }],
     tools: [{ type: "function", function: commitMessageFunction }], // Use tools
     tool_choice: { type: "function", function: { name: commitMessageFunction.name } }, // Use tool_choice
-    temperature: config.openai_temperature,
+    temperature: config.temperature,
   });
 
   const message: ChatCompletionMessage = response.choices[0].message;
