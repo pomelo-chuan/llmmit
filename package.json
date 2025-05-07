@@ -1,6 +1,6 @@
 {
   "name": "llmmit",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
   "description": "llm to generate git commit message",
   "main": "bin/llmmit.js",
@@ -9,6 +9,28 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
+  "tags": [
+    "git",
+    "commit",
+    "message",
+    "llm",
+    "ai",
+    "chatgpt",
+    "openai",
+    "commit message",
+    "commit message generator",
+    "commit message ai",
+    "commit message llm",
+    "commit message openai",
+    "commit message chatgpt",
+    "gemini",
+    "google",
+    "anthropic",
+    "claude",
+    "llama",
+    "llama3",
+    "llama3.1"
+  ],
   "files": [
     "bin",
     "LICENSE",
