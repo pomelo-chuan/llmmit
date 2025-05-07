@@ -48,7 +48,7 @@ yarn global add llmmit
 
 4.  **Confirm:** The tool will show the generated commit message (in green!). Press `y` (or Enter for default yes) to confirm and commit, or `n` to cancel.
 
-## Configuration (Optional)
+## Configuration
 
 You can customize `llmmit`'s behavior by creating a JSON configuration file at `~/.llmmitrc`.
 
@@ -70,7 +70,16 @@ You can customize `llmmit`'s behavior by creating a JSON configuration file at `
 }
 ```
 
-If the configuration file or specific keys are missing, the tool will use default values or the `OPENAI_API_KEY` environment variable.
+**Field Descriptions:**
+
+*   `openai_api_key`: (Required) Your OpenAI API key.
+*   `openai_base_url`: (Optional) Custom base URL for the OpenAI API. Defaults to the official OpenAI API address.
+*   `model`: (Optional) The name of the OpenAI model to use. Defaults to 'gpt-3.5-turbo'.
+*   `temperature`: (Optional) Controls the randomness of the output, a value between 0 and 2. Lower values make the output more deterministic, higher values make it more random. Defaults to 0.7.
+*   `output_language`: (Optional) The output language for the generated commit message. Defaults to 'English'.
+*   `ignorePatterns`: (Optional) An array of strings defining file or directory patterns (glob patterns) to be ignored when analyzing the `git diff`. Defaults to an empty array.
+
+If the configuration file or specific keys are missing, the tool will use default values.
 
 ## Demo
 
