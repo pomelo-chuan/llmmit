@@ -32,7 +32,7 @@ yarn global add llmmit
     {
       "openai_api_key": "your-sk-xxxx"
       // You can include other configurations here.
-      // For a full example, see the "Configuration (Optional)" section.
+      // For a full example, see the "Configuration" section.
     }
     ```
 
