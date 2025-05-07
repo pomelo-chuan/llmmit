@@ -71,3 +71,24 @@ You can customize `llmmit`'s behavior by creating a JSON configuration file at `
 ```
 
 If the configuration file or specific keys are missing, the tool will use default values or the `OPENAI_API_KEY` environment variable.
+
+## Demo
+
+```bash
+⚙️ Configuration loaded from /Users/pomelo/.llmmitrc
+✔ ✨ Commit message generated!
+╭─────────── Generated Commit Message ───────────╮
+│                                                │
+│   feat: feat: improve commit message display   │
+│                                                │
+│   - add boxen for better formatting            │
+│   - update confirm message                     │
+│   - add error handling for OpenAI response     │
+│   - update package version and dependencies    │
+│   - include images in files                    │
+│                                                │
+╰────────────────────────────────────────────────╯
+
+✔ Do you want to use this commit message and proceed with the commit? Yes
+✔ 🎉 Changes committed!
+```
