@@ -50,6 +50,10 @@ if (!config.openai_api_key) {
 const openai = new OpenAI({
   apiKey: config.openai_api_key, // Now guaranteed to be a string
   baseURL: config.openai_base_url ?? undefined,
+  defaultHeaders: {
+    'X-Title': 'llmmit',
+    'HTTP-Referer': 'https://github.com/pomelo-chuan/llmmit',
+  }
 });
 
 async function generateCommitMessage(prompt: string): Promise<CommitMessageArgs> {
